@@ -92,7 +92,9 @@ class DropDownField extends FormField<String> {
       this.itemsVisibleInDropdown: 3,
       this.enabled: true,
       this.strict: true,
-      InputDecoration decoration})
+      InputDecoration decoration,
+      EdgeInsetsGeometry itemListPadding
+    })
       : super(
           key: key,
           autovalidate: false,
@@ -177,7 +179,7 @@ class DropDownField extends FormField<String> {
                           cacheExtent: 0.0,
                           scrollDirection: Axis.vertical,
                           controller: _scrollController,
-                          padding: EdgeInsets.only(left: 40.0),
+                          padding: itemListPadding ?? EdgeInsets.only(left: 40.0),
                           children: items.isNotEmpty
                               ? ListTile.divideTiles(
                                       context: field.context,
